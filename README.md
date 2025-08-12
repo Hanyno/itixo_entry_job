@@ -17,14 +17,18 @@ Aplikace běží v nekonečné smyčce a data aktualizuje každou hodinu.
 
 Ve složce projektu musí být nainstalované NuGet balíčky:
 
+- `Microsoft.EntityFrameworkCore`
 - `Microsoft.EntityFrameworkCore.Sqlite`  
 - `Newtonsoft.Json`
+- `Microsoft.EntityFrameworkCore.Tools` (volitelné pro správu migrací)
 
 Tyto balíčky nainstalujete pomocí příkazů:
 
 ```bash
+dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Newtonsoft.Json
+dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
 ---
