@@ -40,7 +40,7 @@ dotnet run
 
 ---
 
-##Poznámka
+## Poznámka
 
 Při prvním spuštění se automaticky vytvoří databázový soubor `wario.db`. Pokud změníte strukturu datových entit, je nutné tento soubor smazat, aby se při dalším spuštění vytvořil nový, a předešlo se tak chybám.
 
