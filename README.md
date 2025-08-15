@@ -18,17 +18,28 @@ Aplikace běží v nekonečné smyčce a data aktualizuje každou hodinu.
 Ve složce projektu musí být nainstalované NuGet balíčky:
 
 - `Microsoft.EntityFrameworkCore`
-- `Microsoft.EntityFrameworkCore.Sqlite`  
+- `Microsoft.EntityFrameworkCore.Design`
+- `Microsoft.EntityFrameworkCore.Sqlite`
+- `Microsoft.EntityFrameworkCore.Tools`
+- `Microsoft.Extensions.Configuration`
+- `Microsoft.Extensions.Configuration.FileExtensions`
+- `Microsoft.Extensions.Configuration.Json`
+- `Microsoft.Extensions.Hosting`
 - `Newtonsoft.Json`
-- `Microsoft.EntityFrameworkCore.Tools` (volitelné pro správu migrací)
+
 
 Tyto balíčky nainstalujete pomocí příkazů:
 
 ```bash
 dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-dotnet add package Newtonsoft.Json
 dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.Extensions.Configuration
+dotnet add package Microsoft.Extensions.Configuration.FileExtensions
+dotnet add package Microsoft.Extensions.Configuration.Json
+dotnet add package Microsoft.Extensions.Hosting=
+dotnet add package Newtonsoft.Json
 ```
 
 ---
@@ -36,7 +47,19 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 ## Spuštění aplikace
 
 1. Otevřít terminál v kořenové složce projektu
-2. Spusťte aplikaci příkazem:
+2. Vytvořit migraci:
+
+```bash
+dotnet ef migrations add InitialCreate
+```
+
+3. Vytvořit databázi a tabulky:
+
+```bash
+dotnet ef database update
+```
+
+4. Spustit aplikaci:
 
 ```bash
 dotnet run
@@ -46,6 +69,4 @@ dotnet run
 
 ## Poznámka
 
-Při prvním spuštění se automaticky vytvoří databázový soubor `wario.db`. Pokud změníte strukturu datových entit, je nutné tento soubor smazat, aby se při dalším spuštění vytvořil nový, a předešlo se tak chybám.
-
-Aplikace byla vytvořena cca za 3 hodiny a autorem je Jan Kovařčík
+Aplikace byla vytvořena cca za 10 hodin (4 první verze, 6 oprava dle code review) a autorem je Jan Kovařčík
